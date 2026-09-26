@@ -1,15 +1,39 @@
 # Hi, I'm Ruslan 👋
 
-**Backend Software Engineer | PHP · .NET | Go**
+**Senior Backend Engineer | Go · .NET | Distributed Systems**
 
-I build backend systems with a focus on reliability, messaging, and clean architecture.
+I build backend systems where reliability matters: high-volume background processing,
+marketplace integrations, payments, and services that stay correct under retries, crashes, and API limits.
+
+## 💼 What I work on
+
+- Lead a 5-person backend team on an ERP ↔ marketplace integration platform
+  (~1.4M jobs/day, peaks of 180K jobs/hour)
+- Scaled job processing horizontally across two nodes with queue-based workload distribution
+- Cut marketplace API costs by 70% ($4,000 → $1,200/month) with adaptive request batching
+- Built Go services for transactions, loyalty, and notifications extracted from a monolith
+
+## 🚀 Featured Project
+
+### [OrderSync Platform](https://github.com/Ruslan131132/ordersync-platform)
+
+Reliable ERP ↔ marketplace order sync in Go: multiple worker replicas, shared rate limits,
+and exactly-once remote side effects under retries and crashes.
+
+- Lease-based claiming with `SKIP LOCKED` and fenced completion — no global lock on the hot path
+- Shared Redis token bucket per token and method across all replicas
+- Three-layer idempotency (marketplace key, sync ledger, HTTP) — 0 duplicate writes under injected ghost writes
+- Adaptive batching, transactional outbox, leader election, crash recovery
+- Prometheus + Grafana dashboard, pprof, integration tests, CI
+
+*Go · PostgreSQL · Redis · Docker · Prometheus · Grafana*
 
 ## 🛠️ Tech
 
-- **Languages:** PHP, C# / .NET, Go
-- **Data:** PostgreSQL, MS SQL Server, MySQL, Redis
-- **Messaging & jobs:** RabbitMQ, Hangfire
-- **Infra:** Docker, TeamCity CI/CD
+- **Languages:** Go, C# / .NET, PHP
+- **Data:** PostgreSQL, MS SQL Server, MongoDB, Redis
+- **Messaging & jobs:** Kafka, RabbitMQ, Hangfire
+- **Infra & observability:** Docker, Kubernetes, TeamCity CI/CD, Prometheus, Grafana
 
 ## 🎓 University
 
